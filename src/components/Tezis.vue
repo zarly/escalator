@@ -1,31 +1,48 @@
 <template>
 	<div class="Tezis">
 		<h3>{{ object.text }}</h3>
-		<div class="children">
-			<div class="tez-pos">
+		<div class="flex-row">
+			<button class="vote-btn" @click="voteUp()">За</button>
+			<button class="vote-btn" @click="offerChange()">Переформулировать</button>
+			<button class="vote-btn" @click="voteDown()">Против</button>
+		</div>
+		<div class="flex-row">
+			<div class="flex-cell">
 				<div>
-					<b>За</b>
+					<b>Аргументы за</b>
 					<button @click="addPos()">+</button>
 				</div>
-				<Tezis v-for="item in object.pos" :object="item" :key="item.id"></Tezis>
 			</div>
-			<div class="tez-neg">
+			<div class="flex-cell">
 				<div>
-					<b>Против</b>
+					<b>Аргументы против</b>
 					<button @click="addNeg()">+</button>
 				</div>
-				<Tezis v-for="item in object.neg" :object="item" :key="item.id"></Tezis>
+			</div>
+		</div>
+		<div class="splitter-h"></div>
+		<div class="flex-row">
+			<div class="flex-cell">
+				<Argument v-for="item in object.pos" :object="item" :key="item.id"></Argument>
+			</div>
+			<div class="splitter-v"></div>
+			<div class="flex-cell">
+				<Argument v-for="item in object.neg" :object="item" :key="item.id"></Argument>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+	import Argument from '@/components/Argument'
 	import TezisModel from '@/models/tezis'
 
 	export default {
 		name: 'Tezis',
 		props: ['object'],
+		components: {
+			Argument
+		},
 		data () {
 			return {}
 		},
@@ -39,7 +56,13 @@
 				this.object.addNeg({text: text});
 			},
 			voteUp: function () {
-
+				console.log('vote up');
+			},
+			voteDown: function () {
+				console.log('vote down');
+			},
+			offerChange: function () {
+				console.log('change');
 			}
 		}
 	};
@@ -47,20 +70,35 @@
 
 <style lang="less" scoped>
 	.Tezis {
-		border: 1px solid #008;
+		border: 1px solid #cca;
+		background: #ffc;
+		margin: 10px;
+		padding: 10px;
 
-		.children {
+		.vote-btn {
+			width: 150px;
+			flex-basis: 1;
+			margin: 10px;
+		}
+
+		.flex-row {
 			display: flex;
+			justify-content: space-between;
 
-			.tez-pos {
+			.flex-cell {
 				flex: 1;
-				background: rgba(0, 255, 0, 0.2);
 			}
+		}
 
-			.tez-neg {
-				flex: 1;
-				background: rgba(255, 0, 0, 0.2);
-			}
+		.splitter-h {
+			height: 1px;
+			background: #cca;
+			margin: 0 10px;
+		}
+
+		.splitter-v {
+			width: 1px;
+			background: #cca;
 		}
 	}
 </style>
