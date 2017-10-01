@@ -1,11 +1,12 @@
 <template>
 	<div class="panel">
-		<Tezis v-for="item in list" :object="item"></Tezis>
+		<Tezis v-for="item in list" :object="item" :key="item.id"></Tezis>
 	</div>
 </template>
 
 <script>
 	import Tezis from '@/components/Tezis'
+	import TezisModel from '@/models/tezis'
 
 	export default {
 		name: 'panel',
@@ -15,8 +16,8 @@
 		data () {
 			return {
 				list: [
-					{text: 'first item', pos: [], neg: []},
-					{text: 'second item', pos: [], neg: []}
+					new TezisModel({text: 'first item'}),
+					new TezisModel({text: 'second item'})
 				]
 			}
 		}

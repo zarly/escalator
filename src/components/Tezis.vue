@@ -6,19 +6,21 @@
 				<b>За</b>
 				<button @click="addPos()">+</button>
 			</div>
-			<Tezis v-for="item in object.pos" :object="item"></Tezis>
+			<Tezis v-for="item in object.pos" :object="item" :key="item.id"></Tezis>
 		</div>
 		<div>
 			<div>
 				<b>Против</b>
 				<button @click="addNeg()">+</button>
 			</div>
-			<Tezis v-for="item in object.neg" :object="item"></Tezis>
+			<Tezis v-for="item in object.neg" :object="item" :key="item.id"></Tezis>
 		</div>
 	</div>
 </template>
 
 <script>
+	import TezisModel from '@/models/tezis'
+
 	export default {
 		name: 'Tezis',
 		props: ['object'],
@@ -28,11 +30,11 @@
 		methods: {
 			addPos: function () {
 				var text = prompt('Введите текст:');
-				this.object.pos.push({text: text, pos: [], neg: []});
+				this.object.addPos({text: text});
 			},
 			addNeg: function () {
 				var text = prompt('Введите текст:');
-				this.object.neg.push({text: text, pos: [], neg: []});
+				this.object.addNeg({text: text});
 			},
 			voteUp: function () {
 
