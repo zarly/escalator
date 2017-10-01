@@ -1,19 +1,21 @@
 <template>
 	<div class="Tezis">
 		<h3>{{ object.text }}</h3>
-		<div>
-			<div>
-				<b>За</b>
-				<button @click="addPos()">+</button>
+		<div class="children">
+			<div class="tez-pos">
+				<div>
+					<b>За</b>
+					<button @click="addPos()">+</button>
+				</div>
+				<Tezis v-for="item in object.pos" :object="item" :key="item.id"></Tezis>
 			</div>
-			<Tezis v-for="item in object.pos" :object="item" :key="item.id"></Tezis>
-		</div>
-		<div>
-			<div>
-				<b>Против</b>
-				<button @click="addNeg()">+</button>
+			<div class="tez-neg">
+				<div>
+					<b>Против</b>
+					<button @click="addNeg()">+</button>
+				</div>
+				<Tezis v-for="item in object.neg" :object="item" :key="item.id"></Tezis>
 			</div>
-			<Tezis v-for="item in object.neg" :object="item" :key="item.id"></Tezis>
 		</div>
 	</div>
 </template>
@@ -43,9 +45,22 @@
 	};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="less" scoped>
 	.Tezis {
 		border: 1px solid #008;
+
+		.children {
+			display: flex;
+
+			.tez-pos {
+				flex: 1;
+				background: rgba(0, 255, 0, 0.2);
+			}
+
+			.tez-neg {
+				flex: 1;
+				background: rgba(255, 0, 0, 0.2);
+			}
+		}
 	}
 </style>
