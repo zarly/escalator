@@ -1,6 +1,6 @@
 <template>
 	<div class="panel">
-		<Tezis v-for="item in list" :object="item" :key="item.id"></Tezis>
+		<Tezis :object="tezis"></Tezis>
 	</div>
 </template>
 
@@ -15,10 +15,8 @@
 		},
 		data () {
 			return {
-				list: [
-					new TezisModel({text: 'first item'}),
-					new TezisModel({text: 'second item'})
-				]
+				list: TezisModel.exampleList,
+				tezis: TezisModel.exampleList[this.$route.params.tezisId - 1]
 			}
 		}
 	}

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import List from '@/pages/List'
 import Add from '@/pages/Add'
-import Panel from '@/pages/Panel'
+import Tezis from '@/pages/Tezis'
 
 Vue.use(Router);
 
@@ -20,8 +20,8 @@ export default new Router({
 		},
 		{
 			path: '/tezis/:tezisId',
-			name: 'Panel',
-			component: Panel
+			name: 'Tezis',
+			component: Tezis
 		},
 		{
 			path: '/',

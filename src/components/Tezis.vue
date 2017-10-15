@@ -1,6 +1,6 @@
 <template>
 	<div class="Tezis">
-		<h3>{{ object.text }}</h3>
+		<TezisTitle :object="object"></TezisTitle>
 		<div class="flex-row">
 			<button class="vote-btn" @click="voteUp()">За</button>
 			<button class="vote-btn" @click="offerChange()">Переформулировать</button>
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+	import TezisTitle from '@/components/TezisTitle'
 	import Argument from '@/components/Argument'
 	import TezisModel from '@/models/tezis'
 
@@ -41,7 +42,8 @@
 		name: 'Tezis',
 		props: ['object'],
 		components: {
-			Argument
+			Argument,
+			TezisTitle
 		},
 		data () {
 			return {}
@@ -69,36 +71,29 @@
 </script>
 
 <style lang="less" scoped>
-	.Tezis {
-		border: 1px solid #cca;
-		background: #ffc;
+	.vote-btn {
+		width: 150px;
+		flex-basis: 1;
 		margin: 10px;
-		padding: 10px;
+	}
 
-		.vote-btn {
-			width: 150px;
-			flex-basis: 1;
-			margin: 10px;
+	.flex-row {
+		display: flex;
+		justify-content: space-between;
+
+		.flex-cell {
+			flex: 1;
 		}
+	}
 
-		.flex-row {
-			display: flex;
-			justify-content: space-between;
+	.splitter-h {
+		height: 1px;
+		background: #cca;
+		margin: 0 10px;
+	}
 
-			.flex-cell {
-				flex: 1;
-			}
-		}
-
-		.splitter-h {
-			height: 1px;
-			background: #cca;
-			margin: 0 10px;
-		}
-
-		.splitter-v {
-			width: 1px;
-			background: #cca;
-		}
+	.splitter-v {
+		width: 1px;
+		background: #cca;
 	}
 </style>
