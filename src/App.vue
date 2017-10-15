@@ -10,4 +10,9 @@
 	}
 </script>
 
-<style src="./styles/normalize.less" lang="less"></style>
+<style lang="less" src="./styles/normalize.less"></style>
+<style lang="less" scoped>
+	#app {
+		padding: 10px;
+	}
+</style>
