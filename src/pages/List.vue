@@ -61,7 +61,7 @@
 				width: 50px;
 				height: 50px;
 				border-radius: 25px;
-				background: @dark-blue;
+				background: @head-blue;
 				color: @white;
 				text-align: center;
 				font-size: 44px;
