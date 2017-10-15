@@ -21,3 +21,9 @@ class TezisModel {
 }
 
 export default TezisModel;
+
+TezisModel.exampleList = [
+	new TezisModel({text: 'Публиковать больше голосований на актуальные темы'}),
+	new TezisModel({text: 'Создать фотоальбом с автомобилями участников'}),
+	new TezisModel({text: 'Забанить Ивана Сидорова, так как он всем надоел'}),
+];

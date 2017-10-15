@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/pages/Hello'
+import List from '@/pages/List'
 import Panel from '@/pages/Panel'
 
 Vue.use(Router);
@@ -8,14 +8,18 @@ Vue.use(Router);
 export default new Router({
 	routes: [
 		{
-			path: '/hello',
-			name: 'Hello',
-			component: Hello
+			path: '/list',
+			name: 'List',
+			component: List
+		},
+		{
+			path: '/tezis/:tezisId',
+			name: 'Panel',
+			component: Panel
 		},
 		{
 			path: '/',
-			name: 'Panel',
-			component: Panel
+			component: List
 		}
 	]
 });
