@@ -3,7 +3,7 @@
 		<div class="flex-row">
 
 		</div>
-		<h3 v-text="object.text"></h3>
+		<router-link :to="'/tezis/' + object.id" class="title" v-text="object.text"></router-link>
 		<div class="flex-row">
 
 		</div>
@@ -29,10 +29,18 @@
 </script>
 
 <style lang="less" scoped>
+	@import "../styles/_variables.less";
+
 	.TezisTitle {
 		text-align: left;
-		border-top: 1px solid #cca;
-		padding: 10px;
+		padding: 20px;
+
+		.title {
+			color: @dark-blue;
+			font-size: @title-font-size;
+			font-weight: bold;
+			text-decoration: none;
+		}
 
 		.flex-row {
 			display: flex;
@@ -41,12 +49,6 @@
 			.flex-cell {
 				flex: 1;
 			}
-		}
-
-		.splitter-h {
-			height: 1px;
-			background: #cca;
-			margin: 0 10px;
 		}
 	}
 </style>
