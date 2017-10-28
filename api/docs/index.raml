@@ -1,8 +1,24 @@
 #%RAML 1.0
 title: Escalator
-baseUri: https://techadvantage.ru/escalator/api/
-
+#baseUri: https://techadvantage.ru/escalator/api/
+baseUri: http://localhost:3000/api/
+mediaType: application/json
 protocols: [http, https]
+
+/profile:
+  displayName:  Профиль пользователя
+  get:
+    description:  Получить информацию о текущем пользователе
+    responses:
+      200:
+
+
+/community:
+  displayName:  Профиль сообщества
+  get:
+    description:  Получить информацию о текущем сообществе
+    responses:
+      200:
 
 /tezis:
   displayName:  Тезисы
@@ -12,5 +28,16 @@ protocols: [http, https]
       200:
         body:
           application/json:
+            example: !include samples/tezis.json
   post:
     description: Создать новый тезис
+    responses:
+      200:
+        body:
+          application/json:
+  /{id}:
+    displayName:  Тезисы
+    get:
+      description: Получить тезис по его id
+      responses:
+        200:

@@ -1,19 +1,19 @@
 
 var ModelDispatcher = require('../dispatchers/models');
-var Payment = ModelDispatcher.model('Payment');
+var Tezis = ModelDispatcher.model('Tezis');
 
 module.exports = {
 	base: '/api',
 	routes: [
 		{
 			method: 'post',
-			path: '/billing/yandex_payment_callback',
+			path: '/tezis',
 			handler: function (req, res, next) {
-				var payment = new Payment({
-					type: 'yandex_payment_callback',
-					callback: req.body
+				var tezis = new Tezis({
+					author: 'me',
+					meta: req.body
 				});
-				payment.save(function (err) {
+				tezis.save(function (err) {
 					if (err) return next(err);
 					res.json({success: true});
 				});
