@@ -9,7 +9,11 @@
     "test:coverage": "nyc npm test",
     "test:unit": "mocha --recursive test/middleware test/models test/routes",
     "test:integration": "mocha --recursive test/integration",
-    "docs": "cd docs && raml2html index.raml > index.html"
+    "docs:install": "npm i -g raml2html raml2html-slate-theme raml2html-markdown-theme",
+    "docs": "npm run docs:slate",
+    "docs:default": "cd docs && raml2html --theme raml2html-default-theme index.raml > index.html",
+    "docs:slate": "cd docs && raml2html --theme raml2html-slate-theme index.raml > index.html",
+    "docs:markdown": "cd docs && raml2html --theme raml2html-markdown-theme index.raml > index.md"
   },
   "dependencies": {
     "body-parser": "^1.13.3",
