@@ -11,7 +11,7 @@ var config = {
 		app: {
 			name: 'escalator'
 		},
-		port: process.env.PORT || 3000,
+		port: process.env.PORT || 8070,
 		db: 'mongodb://localhost/escalator-development'
 	},
 
@@ -20,7 +20,7 @@ var config = {
 		app: {
 			name: 'escalator'
 		},
-		port: process.env.PORT || 3000,
+		port: process.env.PORT || 8070,
 		db: 'mongodb://localhost/escalator-test'
 	},
 
