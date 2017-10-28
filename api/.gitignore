@@ -4,3 +4,4 @@ public/components
 .sass-cache
 *.marko.js
 package-lock.json
+docs/*.html

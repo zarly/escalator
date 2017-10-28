@@ -1,0 +1,16 @@
+#%RAML 1.0
+title: Escalator
+baseUri: https://techadvantage.ru/escalator/api/
+
+protocols: [http, https]
+
+/tezis:
+  displayName:  Тезисы
+  get:
+    description:  Получить список тезисов
+    responses:
+      200:
+        body:
+          application/json:
+  post:
+    description: Создать новый тезис
