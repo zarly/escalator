@@ -1,0 +1,25 @@
+
+version: 2
+jobs:
+  build:
+    working_directory: ~/api
+    machine:
+      enabled: true
+      node:
+        version: 8
+      services:
+        - mongodb
+    steps:
+      - run: sudo service mongod restart
+      - checkout
+      - run: node -v
+      - run: npm -v
+      - run: npm install
+      - run:
+          name: Test
+          command: npm test
+          shell: /bin/bash
+          working_directory: ~/api
+          no_output_timeout: 30m
+          environment:
+            FOO: "bar"

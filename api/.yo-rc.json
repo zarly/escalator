@@ -1,0 +1,11 @@
+{
+  "generator-express": {
+    "promptValues": {
+      "type": "MVC",
+      "viewEngine": "Marko",
+      "cssPreprocessor": "less",
+      "database": "MongoDB",
+      "buildTool": "Gulp"
+    }
+  }
+}
